@@ -21,10 +21,10 @@ function generatePassword() {
    //restart function if a number outside 8-128 is selected
    else {
      alert ("You have not chosen an acceptable number of characters. Please try again.")
-   generatePassword();
+   
     }
 
-  if (passwordLength => 8 && passwordLength <= 128 ){
+  if (passwordLength > 7 && passwordLength < 129 ){
     
     //allow user to choose whether to use uppercase letters in the password
     if (window.confirm ("Would you like to use upper case letters in your password?") === true) {
