@@ -4,7 +4,7 @@
 var charsAlphaUpper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var charsAlphaLower = "abcdefghijklmnopqrstuvwxyz";
 var charsNum = "0123456789";
-var charsSymbol = "!@#$%^&*()?<>"
+var charsSymbol = "!@#$%^&*()?<>";
 
 
 function generatePassword() {
