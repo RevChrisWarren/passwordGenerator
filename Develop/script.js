@@ -1,35 +1,71 @@
 // Assignment code here
 //allow user to choose password criteria
-var passwordCriteria = window.prompt ("What characters will be in your password? For letters only, type '1', for letters and numbers type '2' for letters, numbers, and special characters, type '3'.");
-//create sets of characters to fit parameters of Alpha, Alpham=numeric, and Alphanumeric with symbols
-var charsAlpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-var charsAlphaNumeric = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-var charsAlphaNumericSymbols = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()?<>"
+//create different strings of characters for the password string
+var charsAlphaUpper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+var charsAlphaLower = "abcdefghijklmnopqrstuvwxyz";
+var charsNum = "0123456789";
+var charsSymbol = "!@#$%^&*()?<>"
 
-var passwordLength = window.prompt ("How many characters in your password? choose a number between 8 and 128.");
+
 function generatePassword() {
-    if (passwordCriteria = 1){
-      var result = " ";
+      var result = "";
+      var charsAll = "";
+
+  //allow user to choose the number of characters in the password
+      var passwordLength = Number(window.prompt ("How many characters in your password? Choose a number between 8 and 128."));
+    
+  //limit user choices to numbers 8-128
+      if (passwordLength > 7 && passwordLength < 129) { 
+  alert ("You have chosen a password of " + passwordLength + " characters.")
+   } 
+   //restart function if a number outside 8-128 is selected
+   else {
+     alert ("You have not chosen an acceptable number of characters. Please try again.")
+   generatePassword();
+    }
+
+  if (passwordLength => 8 && passwordLength <= 128 ){
+    
+    //allow user to choose whether to use uppercase letters in the password
+    if (window.confirm ("Would you like to use upper case letters in your password?") === true) {
+      charsAll = charsAll + charsAlphaUpper;
+      alert ("You have added uppercase letters to your password.");
+      }
+
+    //allow user to choose whether or not to use lowercase letters in the password
+   if (window.confirm ("Would you like to use lowercase letters in your password?") === true) {
+        charsAll = charsAll + charsAlphaLower;
+        alert ("You have added lowercase letters to your password.")
+      }
+      
+      //allow user to choose whether or not to use numbers in the password
+    if (window.confirm ("Would you like to use numbers in your password?") === true) {
+        charsAll = charsAll + charsNum;
+        alert ("You have added numbers to your password.")
+      }
+
+      //allow user to choose whether or not to use symbols in the password
+    if (window.confirm ("Would you like to use special characters in your password?") === true) {
+        charsAll = charsAll + charsSymbol;
+        alert ("You have added special characters to your password.")
+      }
+    
+     if (charsAll === "") {
+        alert ("You have not chosen any characters for your password. Please try again.")
+      }
+      
+      //use a loop function to return a set of numbers to correspond to the string charsAll  
       for (var i = 0; i < passwordLength; i++) {
-        return result += (Math.floor(Math.random() * charsAlpha.length));
-      }
-      }  else if(passwordCriteria = 2) {
-      for (var i = 0; i < passwordLength; i++) {
-        return result += charsAlphaNumeric(Math.floor(Math.random() * charsAlphaNumeric.length));
-      }
-      } else if(passwordCriteria = 3) {
-        for (var i = 0; i < passwordLength; i++) {
-          return result += charsAlphaNumericSymbols(Math.floor(Math.random() * charsAlphaNumericSymbols.length));
-      }
-    }else
-    window.alert ("Please select the characters to use in your password. For letters only, type '1', for letters and numbers type '2' for letters, numbers, and special characters, type '3'.");
-  }
 
+      //correlate the random numbers with the characters in the string charsAll  
+      var randomIndex = Math.floor(Math.random() * charsAll.length);
+         result += charsAll[randomIndex]
 
-console.log(passwordCriteria);
-console.log(passwordLength);
-
-
+         }
+      } 
+      return result;
+      
+  } 
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
