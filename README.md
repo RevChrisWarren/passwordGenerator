@@ -7,4 +7,4 @@
 
 ## Created using JavaScript if/else statements, loops, Math.random, converting numbers to characters in a string.
 
-![Screenshot of application](screenshot/
+![Screenshot of application](screenshot/PasswordGeneratorScreen.jpeg)
