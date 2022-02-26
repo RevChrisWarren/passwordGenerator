@@ -6,3 +6,5 @@
 ### If number of charaters selected is outside paraneters, user receives an erro message to try again.
 
 ## Created using JavaScript if/else statements, loops, Math.random, converting numbers to characters in a string.
+
+![Screenshot of application](screenshot/
